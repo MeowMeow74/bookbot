@@ -1,12 +1,18 @@
 from stats import word_count
-
+import sys
 
 def main():
-    book_path = "books/frankenstein.txt"
+    # using sys to check entries in CLI
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    book_path = sys.argv[1] 
     file_contents = get_text(book_path)
         
-    print(word_count(file_contents))
+    print(f"Found {word_count(file_contents)} total words")
     print_report(dict_to_lst(char_count(file_contents)), book_path)
+    print(sys.argv)
 
 
 
@@ -34,7 +40,7 @@ def print_report(char_lst, book_path):
     char_lst.sort(reverse = True, key = sort_on)
     for char_dict in char_lst:
         if char_dict['keys'].isalpha():
-            print(f"The '{char_dict['keys']}' was found {char_dict['values']} times")
+            print(f"{char_dict['keys']}: {char_dict['values']}")
 
     print('-- End Report --')
     
