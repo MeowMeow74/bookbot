@@ -1,5 +1,5 @@
 def main():
-    book_path = "books/frakenstein.txt"
+    book_path = "books/frankenstein.txt"
     file_contents = get_text(book_path)
         
     print(word_count(file_contents))
