@@ -1,3 +1,6 @@
+from stats import word_count
+
+
 def main():
     book_path = "books/frankenstein.txt"
     file_contents = get_text(book_path)
@@ -6,9 +9,6 @@ def main():
     print_report(dict_to_lst(char_count(file_contents)), book_path)
 
 
-def word_count(file_txt):
-    words_lst = file_txt.split()
-    return len(words_lst)
 
 
 def char_count(file_txt):
